@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola Belula</title>
     <style>
-         /* Reset de márgenes y padding */
+        /* Reset de márgenes y padding */
         body, html {
             margin: 0;
             padding: 0;
@@ -48,27 +48,33 @@
             height: 100%;
             position: relative;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            object-fit: cover;
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        /* Ajuste para las imágenes */
+        .slide img {
+            width: 70%;  
+            height: auto; 
+            object-fit: contain; 
         }
 
         /* Contenedor de texto sobre la imagen */
         .text-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
             color: white;
-            font-size: 24px;
+            font-size: 3vw;  
             font-weight: bold;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
             text-align: center;
-            padding: 10px;
+            padding: 2vw;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            max-width: 80%;
-            box-sizing: border-box;
+            max-width: 80%;  
+            box-sizing: border-box; 
         }
 
         /* Botones de navegación */
@@ -78,8 +84,8 @@
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            padding: 15px;
-            font-size: 24px;
+            padding: 1.5vw;
+            font-size: 3vw; 
             cursor: pointer;
             z-index: 1;
             transform: translateY(-50%);
@@ -96,27 +102,35 @@
         /* Diseño responsivo para tabletas */
         @media (max-width: 1024px) {
             .text-overlay {
-                font-size: 20px;
-                padding: 8px;
+                font-size: 4vw;
+                padding: 3vw;
                 max-width: 90%;
             }
 
             .prev, .next {
-                font-size: 20px;
-                padding: 12px;
+                font-size: 4vw;
+                padding: 3vw;
+            }
+
+            .slide img {
+                width: 70%; 
             }
         }
 
         /* Diseño responsivo para pantallas más pequeñas (móviles) */
         @media (max-width: 600px) {
             .text-overlay {
-                font-size: 16px;
-                padding: 6px;
+                font-size: 5vw;
+                padding: 4vw;
             }
 
             .prev, .next {
-                font-size: 18px;
-                padding: 8px;
+                font-size: 5vw;
+                padding: 4vw;
+            }
+
+            .slide img {
+                width: 80%; 
             }
         }
 
@@ -251,7 +265,7 @@
         };
 
         let currentSlide = 0;
-        const totalSlides = 8; // Cambié el número de diapositivas a 6
+        const totalSlides = 8;
 
         // Función para mover las diapositivas
         function moveSlide(step) {
@@ -275,16 +289,12 @@
 
         // Manejo del "Sí" en el modal
         function handleYes() {
-            // Cerrar el modal de confirmación
             document.getElementById("modal").style.display = "none";
-
-            // Mostrar el modal de agradecimiento
             document.getElementById("thanksModal").style.display = "flex";
         }
 
         // Manejo del "No" en el modal
         function handleNo() {
-            // Cerrar el modal y cerrar la página
             localStorage.setItem("closed", "true");
             window.close();
         }
