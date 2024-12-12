@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Belula</title>
+    <style>
+        /* Reset de márgenes y padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Fondo de la página */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        /* Contenedor principal */
+        .slide-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Estilo para las diapositivas */
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            object-fit: cover;
+        }
+
+        /* Contenedor de texto sobre la imagen */
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        /* Botones de navegación */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Diseño responsivo para tabletas */
+        @media (max-width: 1024px) {
+            .text-overlay {
+                font-size: 18px;
+                padding: 8px;
+                max-width: 90%;
+            }
+
+            .prev, .next {
+                font-size: 20px;
+                padding: 10px;
+            }
+        }
+
+        /* Diseño responsivo para pantallas más pequeñas (móviles) */
+        @media (max-width: 600px) {
+            .text-overlay {
+                font-size: 16px;
+                padding: 6px;
+            }
+
+            .prev, .next {
+                font-size: 18px;
+                padding: 8px;
+            }
+        }
+
+        /* Para ocultar el contenido hasta que el usuario confirme */
+        .hidden {
+            display: none;
+        }
+
+        /* Estilos para el modal de confirmación */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .modal button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .modal button.cancel {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fondo difuso -->
+    <div class="background"></div>
+
+    <!-- Contenedor oculto inicialmente -->
+    <div id="content" class="hidden">
+        <div class="slide-container">
+            <div class="slides">
+                <!-- Diapositiva 1 -->
+                <div class="slide">
+                    <img src="imagenes/primeraimagen.jpg" alt="Imagen 1">
+                    <div class="text-overlay">Bueno, desde el momento en que nos conocimos, pasamos por un monton de altos y bajos que, aunque fueron muy desafiantes, nos ayudaron a fortalecernos. Tuvimos muchas situaciones que nos pusieron a prueba, y eso nos sirvio para aprender a conocernos, mejorar, ser mas pacientes y sobre todo creces como individuos y como pareja. Hoy, mirando todo lo que recorrimos, sobre un camino para nada facil, se que tenemos algo lindo y me emociona pensar todo lo que todavia se nos viene, porque lo que vivimos hasta ahora es solo el inicio. </div>
+                </div>
+                <!-- Diapositiva 2 -->
+                <div class="slide">
+                    <img src="imagenes/img1.jpg" alt="Imagen 2">
+                    <div class="text-overlay">Quiero poder ver amaneceres contigo el resto de mi vida, y ser quien esta a tu lado cada vez que despertas.</div>
+                </div>
+                <!-- Diapositiva 3 -->
+                <div class="slide">
+                    <img src="imagenes/img2.jpg" alt="Imagen 3">
+                    <div class="text-overlay">Quiero verte en tanga y con mis camisetas mientras nos hacemos el desayuno</div>
+                </div>
+                <!-- Diapositiva 4 -->
+                <div class="slide">
+                    <img src="imagenes/img3.jpg" alt="Imagen 4">
+                    <div class="text-overlay">Quiero tener el privilegio de que seas mi acompañante mientras nos hago asados durante todos los domingos de nuestras vidas, mientras escuchamos buenos pagodes. </div>
+                </div>
+                <!-- Diapositiva 5 -->
+                <div class="slide">
+                    <img src="imagenes/img4.jpg" alt="Imagen 5">
+                    <div class="text-overlay">Quiero ser quien te apoya siempre para que cumplas tus metas. Hacerte compañia mientras estudias y cebarte mates.</div>
+                </div>
+                <!-- Diapositiva 6 -->
+                <div class="slide">
+                    <img src="imagenes/img5.jpg" alt="Imagen 6">
+                    <div class="text-overlay">Quiero ser tu kitadol, siempre que tengas alguna molestia, estes triste o te duela algo. </div>
+                </div>
+                <!-- Diapositiva 7 -->
+                <div class="slide">
+                    <img src="imagenes/img7.jpg" alt="Imagen 7">
+                    <div class="text-overlay">Quiero gozar de los mejores atardeceres en compañia tuya, para siempre</div>
+                </div>
+                <!-- Diapositiva 8 -->
+                <div class="slide">
+                    <img src="imagenes/img6.jpg" alt="Imagen 8">
+                    <div class="text-overlay">Pero sobre todo, tener el privilegio de verte dormir y poder seguir sacandote fotos hermosas como esta</div>
+                </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación al llegar a la última diapositiva -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Entonces,¿Queres ser mi compañera de vida y muchas locuras?O sea, mi novia xd</h2>
+            <button class="yes" onclick="handleYes()">Sí</button>
+            <button class="cancel" onclick="handleNo()">No</button>
+        </div>
+    </div>
+
+    <!-- Modal de agradecimiento -->
+    <div id="thanksModal" class="modal">
+        <div class="modal-content">
+            <h2>¡Te amo mucho!Espero poder coincidir contigo el resto de mi vida. Ser fiel a nosotros y que vos tambien lo seas. </h2>
+            <button onclick="closeThanks()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Confirmación de entrada a la página
+        window.onload = function() {
+            if (localStorage.getItem("closed") === "true") {
+                window.close();  // Cierra la página si ya fue rechazada antes
+            } else {
+                var userConfirmed = confirm("¿Estas dispuesta a dejarme intentar hacerte la persona mas feliz del mundo?");
+                if (userConfirmed) {
+                    document.getElementById('content').classList.remove('hidden');
+                } else {
+                    window.close();
+                }
+            }
+        };
+
+        let currentSlide = 0;
+        const totalSlides = 8; // Cambié el número de diapositivas a 6
+
+        // Función para mover las diapositivas
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.slide');
+            currentSlide += step;
+
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+
+            if (currentSlide === totalSlides - 1) {
+                // Si es la última diapositiva, mostramos el modal
+                document.getElementById("modal").style.display = "flex";
+            }
+
+            const slidesContainer = document.querySelector('.slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Manejo del "Sí" en el modal
+        function handleYes() {
+            // Cerrar el modal de confirmación
+            document.getElementById("modal").style.display = "none";
+
+            // Mostrar el modal de agradecimiento
+            document.getElementById("thanksModal").style.display = "flex";
+        }
+
+        // Manejo del "No" en el modal
+        function handleNo() {
+            // Cerrar el modal y cerrar la página
+            localStorage.setItem("closed", "true");
+            window.close();
+        }
+
+        // Cerrar el modal de agradecimiento
+        function closeThanks() {
+            document.getElementById("thanksModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
