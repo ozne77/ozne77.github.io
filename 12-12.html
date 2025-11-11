@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hola Belula</title>
     <style>
-        /* Reset de márgenes y padding */
+        
         body, html {
             margin: 0;
             padding: 0;
@@ -13,7 +13,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Fondo de la página */
+     
         .background {
             position: absolute;
             top: 0;
@@ -28,7 +28,7 @@
             z-index: -1;
         }
 
-        /* Contenedor principal */
+    
         .slide-container {
             position: relative;
             width: 100%;
@@ -36,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* Estilo para las diapositivas */
+      
         .slides {
             display: flex;
             transition: transform 1s ease-in-out;
@@ -52,14 +52,14 @@
             align-items: center; 
         }
 
-        /* Ajuste para las imágenes */
+     
         .slide img {
             width: 70%;  
             height: auto; 
             object-fit: contain; 
         }
 
-        /* Contenedor de texto sobre la imagen */
+
         .text-overlay {
             position: absolute;
             top: 50%; 
@@ -77,7 +77,7 @@
             box-sizing: border-box; 
         }
 
-        /* Botones de navegación */
+
         .prev, .next {
             position: absolute;
             top: 50%;
@@ -99,7 +99,7 @@
             right: 10px;
         }
 
-        /* Diseño responsivo para tabletas */
+       
         @media (max-width: 1024px) {
             .text-overlay {
                 font-size: 4vw;
@@ -117,7 +117,7 @@
             }
         }
 
-        /* Diseño responsivo para pantallas más pequeñas (móviles) */
+       
         @media (max-width: 600px) {
             .text-overlay {
                 font-size: 5vw;
@@ -134,12 +134,12 @@
             }
         }
 
-        /* Para ocultar el contenido hasta que el usuario confirme */
+       
         .hidden {
             display: none;
         }
 
-        /* Estilos para el modal de confirmación */
+       
         .modal {
             display: none;
             position: fixed;
@@ -179,49 +179,49 @@
 </head>
 <body>
 
-    <!-- Fondo difuso -->
+ 
     <div class="background"></div>
 
-    <!-- Contenedor oculto inicialmente -->
+
     <div id="content" class="hidden">
         <div class="slide-container">
             <div class="slides">
-                <!-- Diapositiva 1 -->
+               
                 <div class="slide">
                     <img src="imagenes/primeraimagen.jpg" alt="Imagen 1">
                     <div class="text-overlay">Bueno, desde el momento en que nos conocimos, pasamos por un monton de altos y bajos que, aunque fueron muy desafiantes, nos ayudaron a fortalecernos. Tuvimos muchas situaciones que nos pusieron a prueba, y eso nos sirvio para aprender a conocernos, mejorar, ser mas pacientes y sobre todo creces como individuos y como pareja. Hoy, mirando todo lo que recorrimos, sobre un camino para nada facil, se que tenemos algo lindo y me emociona pensar todo lo que todavia se nos viene, porque lo que vivimos hasta ahora es solo el inicio. </div>
                 </div>
-                <!-- Diapositiva 2 -->
+             
                 <div class="slide">
                     <img src="imagenes/img1.jpg" alt="Imagen 2">
                     <div class="text-overlay">Quiero poder ver amaneceres contigo el resto de mi vida, y ser quien esta a tu lado cada vez que despertas.</div>
                 </div>
-                <!-- Diapositiva 3 -->
+               
                 <div class="slide">
                     <img src="imagenes/img2.jpg" alt="Imagen 3">
                     <div class="text-overlay">Quiero verte en tanga y con mis camisetas mientras nos hacemos el desayuno</div>
                 </div>
-                <!-- Diapositiva 4 -->
+              
                 <div class="slide">
                     <img src="imagenes/img3.jpg" alt="Imagen 4">
                     <div class="text-overlay">Quiero tener el privilegio de que seas mi acompañante mientras nos hago asados durante todos los domingos de nuestras vidas, mientras escuchamos buenos pagodes. </div>
                 </div>
-                <!-- Diapositiva 5 -->
+             
                 <div class="slide">
                     <img src="imagenes/img4.jpg" alt="Imagen 5">
                     <div class="text-overlay">Quiero ser quien te apoya siempre para que cumplas tus metas. Hacerte compañia mientras estudias y cebarte mates.</div>
                 </div>
-                <!-- Diapositiva 6 -->
+            
                 <div class="slide">
                     <img src="imagenes/img5.jpg" alt="Imagen 6">
                     <div class="text-overlay">Quiero ser tu kitadol, siempre que tengas alguna molestia, estes triste o te duela algo. </div>
                 </div>
-                <!-- Diapositiva 7 -->
+         
                 <div class="slide">
                     <img src="imagenes/img7.jpg" alt="Imagen 7">
                     <div class="text-overlay">Quiero gozar de los mejores atardeceres en compañia tuya, para siempre</div>
                 </div>
-                <!-- Diapositiva 8 -->
+            
                 <div class="slide">
                     <img src="imagenes/img6.jpg" alt="Imagen 8">
                     <div class="text-overlay">Pero sobre todo, tener el privilegio de verte dormir y poder seguir sacandote fotos hermosas como esta</div>
@@ -232,7 +232,7 @@
         </div>
     </div>
 
-    <!-- Modal de confirmación al llegar a la última diapositiva -->
+   
     <div id="modal" class="modal">
         <div class="modal-content">
             <h2>Entonces,¿Queres ser mi compañera de vida y muchas locuras?O sea, mi novia xd</h2>
@@ -241,7 +241,7 @@
         </div>
     </div>
 
-    <!-- Modal de agradecimiento -->
+
     <div id="thanksModal" class="modal">
         <div class="modal-content">
             <h2>¡Te amo mucho!Espero poder coincidir contigo el resto de mi vida. Ser fiel a nosotros y que vos tambien lo seas. </h2>
@@ -250,7 +250,7 @@
     </div>
 
     <script>
-        // Confirmación de entrada a la página
+        
         window.onload = function() {
             if (localStorage.getItem("closed") === "true") {
                 window.close();  // Cierra la página si ya fue rechazada antes
@@ -267,7 +267,7 @@
         let currentSlide = 0;
         const totalSlides = 8;
 
-        // Función para mover las diapositivas
+    
         function moveSlide(step) {
             const slides = document.querySelectorAll('.slide');
             currentSlide += step;
@@ -279,7 +279,7 @@
             }
 
             if (currentSlide === totalSlides - 1) {
-                // Si es la última diapositiva, mostramos el modal
+           
                 document.getElementById("modal").style.display = "flex";
             }
 
@@ -287,19 +287,18 @@
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
-        // Manejo del "Sí" en el modal
+
         function handleYes() {
             document.getElementById("modal").style.display = "none";
             document.getElementById("thanksModal").style.display = "flex";
         }
 
-        // Manejo del "No" en el modal
         function handleNo() {
             localStorage.setItem("closed", "true");
             window.close();
         }
 
-        // Cerrar el modal de agradecimiento
+  
         function closeThanks() {
             document.getElementById("thanksModal").style.display = "none";
         }
@@ -307,4 +306,5 @@
 
 </body>
 </html>
+
 
